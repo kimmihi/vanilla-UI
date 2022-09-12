@@ -9,10 +9,11 @@ const createBox = (container, size) => {
   for (let i = 0; i < size; i++) {
     const box = document.createElement("div");
     box.className = "box";
+    box.innerText = count * 10 + (i + 1);
     container.appendChild(box);
   }
 };
-
+let count = 0;
 const body = document.querySelector("body");
 
 export const container = document.createElement("div");
@@ -23,8 +24,13 @@ end.className = "end";
 body.appendChild(end);
 
 const observer = new IntersectionObserver(
-  () => {
-    createBox(container, 10);
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        createBox(container, 10);
+        count += 1;
+      }
+    });
   },
   {
     threshold: 1.0,
