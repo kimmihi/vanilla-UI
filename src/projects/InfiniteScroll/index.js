@@ -3,15 +3,7 @@
  */
 
 import "./styles.css";
-
-const createBox = (container, size) => {
-  for (let i = 0; i < size; i++) {
-    const box = document.createElement("div");
-    box.className = "box";
-    box.innerText = count * 10 + (i + 1);
-    container.appendChild(box);
-  }
-};
+import { createBox } from "./utils";
 
 let count = 0;
 
@@ -28,7 +20,7 @@ const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        createBox(container, 10);
+        createBox(container, 10, count);
         count += 1;
       }
     });
