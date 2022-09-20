@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: #009900;
+  border: 1px solid black;
+}
+
+.wrapper {
+  width: 150px;
+  height: 150px;
+  background-color: #ccffcc;
+  border-radius: 8px;
+}
