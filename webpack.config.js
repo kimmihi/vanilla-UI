@@ -1,10 +1,10 @@
-var path = require("path");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (env) => {
-  console.log(env);
   return {
-    entry: "./src/index.js",
+    entry: `${env.entry}/index.js`,
     output: {
       filename: "main.js",
       path: path.resolve(__dirname, "dist"),
@@ -23,14 +23,15 @@ module.exports = (env) => {
         },
         {
           test: /\.css$/,
-          use: ["style-loader", "css-loader"],
+          use: [MiniCssExtractPlugin.loader, "css-loader"],
         },
       ],
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: env.template,
+        template: `${env.entry}/index.html`,
       }),
+      new MiniCssExtractPlugin({ filename: `${env.entry}/styles.css` }),
     ],
   };
 };

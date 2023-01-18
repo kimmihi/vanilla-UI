@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack serve --mode=development",
     "build": "webpack --mode=production",
-    "start:scroll": "webpack serve --mode=development --env template='./src/projects/infiniteScroll/index.html'"
+    "start:scroll": "webpack serve --mode=development --env template='./src/projects/infiniteScroll/index.html'",
+    "start:slide": "webpack serve --mode=development --env entry='./src/projects/slide-show'"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,14 @@
   "homepage": "https://github.com/4kimball/vanilla-UI#readme",
   "devDependencies": {
     "babel-loader": "^8.2.5",
-    "css-loader": "^6.7.1",
+    "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.0"
+  },
+  "dependencies": {
+    "mini-css-extract-plugin": "^2.7.2"
   }
 }
